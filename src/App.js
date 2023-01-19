@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import AdminPage from "./Admin/AdminPage";
+import Carts from "./Admin/Carts";
+import Products from "./Admin/Products";
+import UserProfile from "./Admin/UserProfile";
+import Users from "./Admin/Users";
+
+import "./App.css";
+import Test from "./Test";
+import HomePage from "./User/HomePage";
+import Login from "./User/Login";
+import ProductPage from "./User/ProductPage";
+import UserCart from "./User/UserCart";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="login" element={<Login />} />
+        <Route path="userCart/:id" element={<UserCart />} />
+        <Route path="productPage/:id" element={<ProductPage />} />
+        <Route path="adminPage" element={<AdminPage />} />
+        <Route path="adminPage/Carts" element={<Carts />} />
+        <Route path="adminPage/users" element={<Users />} />
+        <Route path="adminPage/products" element={<Products />} />
+        <Route path="adminPage/users/:id" element={<UserProfile />} />
+        <Route path="test" element={<Test />} />
+      </Routes>
+    </>
   );
 }
 
